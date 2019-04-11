@@ -26,6 +26,7 @@ export default class NavLeft extends React.Component {
         );
       }
       return (
+        //Menu.Item显示菜单
         <Menu.Item title={item.title} key={item.key}>
           {item.title}
         </Menu.Item>
