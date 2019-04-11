@@ -1,5 +1,6 @@
 import React from 'react'
 import Child from './Child';
+import './index.less'
 
 export default class Life extends React.Component {
 
@@ -16,7 +17,8 @@ export default class Life extends React.Component {
     render() {
         return (
             //样式要有两个{}括号
-            <div style={{ padding: 30 }}>  
+            //<div style={{ padding: 30 }}>  
+            < div className='content'>
                 <p>React生命周期</p>
                 <button onClick={this.handleAdd}>点击一下</button>
                 <p>{this.state.count}</p>
