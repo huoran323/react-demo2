@@ -346,7 +346,13 @@ module.exports = function(webpackEnv) {
                           ReactComponent: '@svgr/webpack?-svgo,+ref![path]',
                         },
                       },
-                    },
+                    }
+                  ],
+                  [
+                    'import', {
+                      "libraryName": 'antd', //引入antd按需加载，不需要引入相应的css文件了
+                      "style": true  //将样式加载到style内，进行样式设置
+                    }
                   ],
                 ],
                 // This is a feature of `babel-loader` for webpack (not Babel itself).
@@ -414,7 +420,7 @@ module.exports = function(webpackEnv) {
                 getLocalIdent: getCSSModuleLocalIdent,
               }),
             },
-            {
+            /* {
               test: lessRegex,
               exclude: lessModuleRegex,
               use: getStyleLoaders({
@@ -428,6 +434,7 @@ module.exports = function(webpackEnv) {
               // Remove this when webpack adds a warning or an error for this.
               // See https://github.com/webpack/webpack/issues/6571
               sideEffects: true,
+              
             },
             // Adds support for CSS Modules (https://github.com/css-modules/css-modules)
             // using the extension .module.css
@@ -441,33 +448,27 @@ module.exports = function(webpackEnv) {
               },
                 'less-loader'
               ),
-            },
-            /* {
-              test: lessRegex,
-              exclude: lessModuleRegex,
-              use: getStyleLoaders({
-                  importLoaders: 2,
-                  sourceMap: isEnvProduction && shouldUseSourceMap,
-                },
-                'less-loader'
-              ),
-              // Don't consider CSS imports dead code even if the
-              // containing package claims to have no side effects.
-              // Remove this when webpack adds a warning or an error for this.
-              // See https://github.com/webpack/webpack/issues/6571
-              sideEffects: true,
-            },
-            {
-              test: lessModuleRegex,
-              use: getStyleLoaders({
-                  importLoaders: 2,
-                  sourceMap: isEnvProduction && shouldUseSourceMap,
-                  modules: true,
-                  getLocalIdent: getCSSModuleLocalIdent,
-                },
-                'less-loader'
-              ),
             }, */
+            {
+              test: /\.less$/,
+              //include: paths.appSrc,
+              use: [{
+                loader: "style-loader" // creates style nodes from JS strings
+              }, {
+                loader: "css-loader" // translates CSS into CommonJS
+              }, {
+                loader: "less-loader", // compiles Less to CSS
+                options: {
+                  sourceMap: true,
+                  modifyVars: {
+                    'primary-color': '#f9c700', //主题颜色
+                    'link-color': '#1DA57A',
+                    'border-radius-base': '2px',
+                  },
+                  javascriptEnabled: true,
+                }
+              }]
+            },
             // Opt-in support for SASS (using .scss or .sass extensions).
             // By default we support SASS Modules with the
             // extensions .module.scss or .module.sass
