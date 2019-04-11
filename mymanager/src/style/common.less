@@ -1,0 +1,16 @@
+.container{
+    display: flex;
+    .nav-left{
+        width: 15%;
+        min-width: 180px; //防止缩放屏幕的最小宽度
+        height: calc(100vh); //计算方法，计算左侧的导航的高度，1vh相当于1% , 100vh相当于100%
+    }
+    .main{
+        flex: 1;
+        height: calc(100vh);
+    }
+    .content{
+        position: relative;
+        padding: 20px;
+    }
+}
