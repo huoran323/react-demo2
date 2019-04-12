@@ -1,9 +1,13 @@
+ @import './../../style/default.less';
+ 
  .header{
+     background-color: @colorM;
      .header-top{
          height: 60px; //高度
          line-height: 60px; //行高 文字方向垂直居中
          padding: 0 20px; //上下0  左右20px
          text-align: right; //让字体居右显示
+         border-bottom: 1px solid #f9c700;
          a{
              margin-left: 40px; //退出按钮离左侧的标签距离 
          }
@@ -12,9 +16,18 @@
          height: 40px;
          line-height: 40px;
          padding: 0 20px;
-         border-top: 1px solid #f9c700;
          .breadcrumb-title{
              text-align: center;
+             font-size: @fontC; 
+             &:after{
+                 position: absolute; //开启绝对定位
+                 content: ''; //清除浮动，用来占位
+                 left: 73px;
+                 top: 39px;
+                 border-top: 9px solid @colorM;
+                 border-left: 12px solid transparent;
+                 border-right: 12px solid transparent;
+             }
          }
          .weather{
              font-size: 14px;

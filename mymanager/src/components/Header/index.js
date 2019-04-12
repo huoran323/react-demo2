@@ -53,7 +53,7 @@ export default class Header extends React.Component {
                     </Col>
                 </Row>
                 <Row className="breadcrumb">
-                    <Col span='4' className="breadcrumb">
+                    <Col span='4' className="breadcrumb-title">
                         首页
                     </Col>
                     <Col span='20' className="weather">
