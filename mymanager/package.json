@@ -121,5 +121,8 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "jsonp": "^0.2.1"
   }
 }
