@@ -46,6 +46,7 @@ export default class Modals extends React.Component {
     return (
       <div>
         <Card title="基础模态框" className="card-wrap">
+          {/* //按钮点击事件的传参写法，要按照下面的进行 */}
           <Button type="primary" onClick={() => this.handleOpen("showModal1")}>
             Open
           </Button>
