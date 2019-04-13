@@ -5,15 +5,15 @@ const menuList = [
   },
   {
     title: "UI",
-    key: "/ui",
+    key: "/admin/ui",
     children: [
       {
         title: "按钮",
-        key: "admin/ui/buttons"
+        key: "/admin/ui/buttons"
       },
       {
         title: "弹框",
-        key: "/ui/modals"
+        key: "/admin/ui/modals"
       },
       {
         title: "Loading",
