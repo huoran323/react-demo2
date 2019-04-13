@@ -19,8 +19,10 @@ export default class IRouter extends React.Component {
             render={() => (
               //路由嵌套，匹配子组件
               <Admin>
-                <Route path="/admin/ui/buttons" component={Buttons} />
-                <Route component={NoMatch} />
+                <Switch>
+                  <Route path="/admin/ui/buttons" component={Buttons} />
+                  <Route component={NoMatch} />
+                </Switch>
               </Admin>
             )}
           />

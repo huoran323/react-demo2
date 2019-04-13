@@ -1,4 +1,4 @@
-@import './default.less';
+@import "./default.less";
 
 .container {
   display: flex;
@@ -14,7 +14,8 @@
   .main {
     height: calc(100vh);
     flex: 1;
-    background-color: @colorL; 
+    background-color: @colorL;
+    overflow: auto; //给右侧的内容区添加滚动，左侧不动，当右侧的内容区的高度超过视图高度时，自动进行滚动
   }
   .content {
     position: relative;
