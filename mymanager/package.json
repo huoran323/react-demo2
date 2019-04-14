@@ -123,6 +123,7 @@
     ]
   },
   "devDependencies": {
-    "jsonp": "^0.2.1"
+    "jsonp": "^0.2.1",
+    "moment": "^2.24.0"
   }
 }
