@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card, Table } from 'antd'
-import axios from 'axios'
+
+import axios from './../../axios'
 
 export default class BasicTable extends React.Component {
 
@@ -9,16 +10,30 @@ export default class BasicTable extends React.Component {
     };
 
     //动态获取mock数据
-    request = () => {
-        let baseUrl = 'https://www.easy-mock.com/mock/5cb4214a5ece740604898033/mock';
-        axios.get(baseUrl + '/tablelist').then((res) => {
-            console.log(JSON.stringify(res))
-            if (res.status == '200' && res.data.code == 0) {
-                this.setState({
-                    dataSource2:res.data.result
-                })
+    request = () => { 
+        //框架抛出了promise对象，
+        axios.ajax({
+            url: '/tablelist',
+            data:{
+                params:{
+                    page:1
+                }
             }
+        }).then((res) => {
+            this.setState({
+                dataSource2:res.result
+            })
         })
+        //封装之前的请求
+        // let baseUrl = 'https://www.easy-mock.com/mock/5cb4214a5ece740604898033/mock';
+        // axios.get(baseUrl + '/tablelist').then((res) => {
+        //     console.log(JSON.stringify(res))
+        //     if (res.status == '200' && res.data.code == 0) {
+        //         this.setState({
+        //             dataSource2:res.data.result
+        //         })
+        //     }
+        // })
     }
 
     componentDidMount() {
