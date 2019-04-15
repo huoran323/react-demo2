@@ -10,9 +10,8 @@ import {
   Switch,
   DatePicker,
   TimePicker,
-  Upload,
+  Upload, 
   Icon,
-  message,
   InputNumber
 } from "antd";
 import moment from "moment";
