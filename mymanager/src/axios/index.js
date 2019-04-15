@@ -20,6 +20,13 @@ export default class Axios{
     }
 
     static ajax(options) {
+        //自定义loading
+        let loading;
+        //isShowLoading 是否显示加载请求的loading,默认为true
+        if (options.data && options.data.isShowLoading !== false) {
+            loading = document.getElementById("ajaxLoading");
+            loading.style.display = "block"; //设置为block,显示loading
+        }
         let baseUrl = 'https://www.easy-mock.com/mock/5cb4214a5ece740604898033/mock';
         return new Promise((resolve, reject) => {
              axios({
@@ -29,6 +36,10 @@ export default class Axios{
                  timeout: 5000,
                  params: (options.data && options.data.params) || '',
              }).then((response) => {
+                if (options.data && options.data.isShowLoading !== false) {
+                    loading = document.getElementById("ajaxLoading");
+                    loading.style.display = "none"; //设置为none,隐藏loading
+                }
                 if (response.status == '200') {
                     let res = response.data;
                     if (res.code == '0') { //业务代码中定义的code值，根据不同的项目会有不同的code值
