@@ -81,6 +81,7 @@ class FormRegister extends React.Component {
             {/* {...formItemLayout} ES6三点解构语法，相当于把formItemLayout当做是FormItem的属性，等同于把上面的代码写在这个地方 */}
             <FormItem label="用户名" {...formItemLayout}>
               {getFieldDecorator("userName", {
+                initialValue: 'huoran',
                 rules: [
                   {
                     required: true, //require为true时，label前面会自动添加上*号，提示用户此项为必填项
