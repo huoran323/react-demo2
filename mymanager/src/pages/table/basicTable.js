@@ -2,35 +2,47 @@ import React from "react";
 import { Card, Table, Modal, Button, message } from "antd";
 
 import axios from "./../../axios";
+import Utils from "../../utils/utils";
 
 export default class BasicTable extends React.Component {
   state = {
     dataSource2: []
   };
 
+  //自定义变量，变量变化不需要渲染DOM，所以不需要添加到state中
+  params = {
+    page: 1
+  }
+
   //动态获取mock数据
   request = () => {
+    let _this = this;
     //框架抛出了promise对象，
     axios
       .ajax({
         url: "/tablelist",
         data: {
           params: {
-            page: 1
+            page: this.params.page
           }
           //是否显示loading 默认true
           // isShowLoading: false
         }
       })
       .then(res => {
-        res.result.map((item, index) => {
+        res.result.list.map((item, index) => {
           item.key = index;
         });
         this.setState({
-          dataSource2: res.result,
+          dataSource2: res.result.list,
           //删除多选后，重新请求数据，清空选择的行
           selectedRowKeys: [],
-          selectedRows: null
+          selectedRows: null,
+          pagination: Utils.pagination(res,(current) => {
+            //存储当前页码
+            _this.params.page = current;
+            _this.request();
+          })
         });
       });
     //封装之前的请求
@@ -265,7 +277,7 @@ export default class BasicTable extends React.Component {
             columns={columns}
             dataSource={this.state.dataSource2}
             bordered
-            pagination={false}
+            pagination={this.state.pagination}
           />
         </Card>
       </div>

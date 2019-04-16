@@ -9,7 +9,7 @@ export default {
     },
 
     pagination(data, callback) {
-        let page = {
+        return {
             //current当前是第几页
             onChange:(current) => {
                 //回调函数，告诉业务代码当前是第几页
@@ -19,7 +19,11 @@ export default {
             current: data.result.page, //当前页码
             pageSize: data.result.page_size, //page, page_size为业务代码返回的key值
             total: data.result.total,
-            show
+            showTotal:() => {
+              return `共${data.result.total}条`  
+            },
+            //是否可以快速跳转至某页
+            showQuickJumper:true,
         }
     }
 }
