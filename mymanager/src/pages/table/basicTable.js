@@ -260,6 +260,14 @@ export default class BasicTable extends React.Component {
             pagination={false}
           />
         </Card>
+        <Card title="Mock-表格分页" style={{ margin: "10px 0" }}>
+          <Table
+            columns={columns}
+            dataSource={this.state.dataSource2}
+            bordered
+            pagination={false}
+          />
+        </Card>
       </div>
     );
   }
