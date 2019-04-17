@@ -8,6 +8,18 @@
          padding: 0 20px; //上下0  左右20px
          text-align: right; //让字体居右显示
          border-bottom: 1px solid #f9c700;
+         .logo {
+             line-height: 60px;
+             text-align: left;
+             font-size: 18px;
+             img{
+                 height: 40px;
+                 vertical-align: middle;
+             }
+             span{
+                 margin-left: 10px;
+             }
+         }
          a{
              margin-left: 40px; //退出按钮离左侧的标签距离 
          }
@@ -48,3 +60,16 @@
          }
      }
  }
+
+ // common 页面简单头
+.simple-page{
+    .header-top{
+      background:#1890ff;
+      color:@colorM;
+    }
+    .ant-form,
+    .ant-col-12,
+    .weather{
+      display:none;
+    }
+  }

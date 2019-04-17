@@ -19,6 +19,7 @@ import BasicTable from "./pages/table/basicTable";
 import HighTable from "./pages/table/highTable";
 import City from "./pages/city";
 import Order from "./pages/order";
+import Common from "./common";
 
 export default class IRouter extends React.Component {
   render() {
@@ -29,6 +30,7 @@ export default class IRouter extends React.Component {
           <Route path="/login" component={Login} />
           <Route
             path="/admin"
+            //此处render中的箭头函数返回的是子路由组件，所以使用()包裹起来，里面不是js代码，所以不能用{}
             render={() => (
               //路由嵌套，匹配子组件
               <Admin>
@@ -52,7 +54,14 @@ export default class IRouter extends React.Component {
               </Admin>
             )}
           />
-          <Route path="order/detail" component={Login} />
+          <Route 
+            path="/common"
+            render={() => (
+              <Common>
+                <Route path="/common/order/detail/:orderId" component={Login} /> 
+              </Common>
+            )}
+          />
         </App>
       </Router>
     );
