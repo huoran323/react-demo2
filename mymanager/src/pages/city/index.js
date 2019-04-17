@@ -148,7 +148,7 @@ export default class City extends React.Component{
         );
     }
 }
-//创建表单的时候，一定要写下面这行代码，用来对表单进行数据绑定
+
 class FilterForm extends React.Component{
 
     render(){
@@ -220,6 +220,7 @@ class FilterForm extends React.Component{
         );
     }
 }
+//创建表单的时候，一定要写下面这行代码，用来对表单进行数据绑定
 FilterForm = Form.create({})(FilterForm);
 
 class OpenCityForm extends React.Component{
