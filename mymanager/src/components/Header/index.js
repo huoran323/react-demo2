@@ -48,6 +48,7 @@ export default class Header extends React.Component {
         return (
             <div className="header">
                 <Row className="header-top">
+                //根据menuType判断列
                 {
                     menuType?
                         <Col span='6' className="logo">
