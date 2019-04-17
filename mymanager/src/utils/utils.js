@@ -20,7 +20,7 @@ export default {
             pageSize: data.result.page_size, //page, page_size为业务代码返回的key值
             total: data.result.total,
             showTotal:() => {
-              return `共${data.result.total}条`  
+              return `共${data.result.total_count}条`  
             },
             //是否可以快速跳转至某页
             showQuickJumper:true,
