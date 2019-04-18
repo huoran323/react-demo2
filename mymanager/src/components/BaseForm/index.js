@@ -10,6 +10,7 @@ class FilterForm extends React.Component{
     //查询所选的数据
     handleFilterSubmit = ()=>{
         let fieldsValue = this.props.form.getFieldsValue();
+        //将选中的数据传输回去
         this.props.filterSubmit(fieldsValue);
     }
 

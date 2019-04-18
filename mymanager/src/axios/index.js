@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Modal } from 'antd';
 
 export default class Axios{
+
     //options传进来个对象，可以控制参数
     static jsonp(options) {
         return new Promise((resolve, reject) => {

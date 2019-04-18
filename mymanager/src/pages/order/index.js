@@ -209,6 +209,7 @@ export default class Order extends React.Component {
         return(
             <div>
                  <Card>
+                     {/* //filterSubmit 接收baseForm选中传回来的值 */}
                  <BaseForm formList={this.formList} filterSubmit={this.handleFilter}/>
                  </Card>
                  <Card style={{marginTop:10}}>

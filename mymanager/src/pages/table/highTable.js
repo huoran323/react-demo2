@@ -24,7 +24,7 @@ export default class HighTable extends React.Component {
     //框架抛出了promise对象，
     axios
       .ajax({
-        url: "/hightable/list",
+        url: "/table/high/list",
         data: {
           params: {
             page: this.params.page

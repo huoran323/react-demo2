@@ -20,7 +20,7 @@ export default class BasicTable extends React.Component {
     //框架抛出了promise对象，
     axios
       .ajax({
-        url: "/tablelist",
+        url: "/table/list",
         data: {
           params: {
             page: this.params.page
