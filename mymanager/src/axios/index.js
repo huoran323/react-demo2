@@ -27,7 +27,7 @@ export default class Axios{
             loading = document.getElementById("ajaxLoading");
             loading.style.display = "block"; //设置为block,显示loading
         }
-        let baseUrl = 'https://www.easy-mock.com/mock/5cb4214a5ece740604898033/mock';
+        let baseUrl = 'https://www.easy-mock.com/mock/5a7278e28d0c633b9c4adbd7/api';
         return new Promise((resolve, reject) => {
              axios({
                  url: options.url,
