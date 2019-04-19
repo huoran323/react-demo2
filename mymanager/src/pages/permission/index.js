@@ -61,6 +61,7 @@ export default class Order extends React.Component{
         })
     }
 
+    //设置权限按钮点击事件
     handlePermission = ()=>{
         if (!this.state.selectedItem) {
             Modal.info({
@@ -325,6 +326,7 @@ class PermEditForm extends React.Component {
     onCheck = (checkedKeys) => {
         this.props.patchMenuInfo(checkedKeys);
     };
+    //渲染结构树
     renderTreeNodes = (data,key='') => {
         return data.map((item) => {
             let parentKey = key+item.key;
